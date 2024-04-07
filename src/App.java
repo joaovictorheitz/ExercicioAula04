@@ -1,9 +1,11 @@
 public class App {
     public static void main(String[] args) throws Exception {
         String paises[] = { "Mexico", "Brasil", "Cuba", "Chile", "Argentina", "Espanha" };
+        int numeros [] = { 4, 2, 10, 123, -3, 32, 0, 34, 12, 91, 45, 3, 21, 87, 61};
 
         bubbleSort(paises);
         insertionSort(paises);
+        selectionSort(numeros);
     }
 
     public static void bubbleSort(String[] paises) {
@@ -39,8 +41,27 @@ public class App {
             }
         }
 
-        for (int k = 0; k < tamanhoLista; k++) {
-            System.out.println(paises[k]);
+        for (int i = 0; i < tamanhoLista; i++) {
+            System.out.println(paises[i]);
+        }
+    }
+
+    public static void selectionSort(int[] numeros) {
+        int tamanhoLista = numeros.length;
+
+        for (int i = 0; i < tamanhoLista - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < tamanhoLista; j++) {
+                if (numeros[j] > numeros[min])
+                    min = j;
+            }
+            int temp = numeros[i];
+            numeros[i] = numeros[min];
+            numeros[min] = temp;
+        }
+
+        for (int i = 0; i < tamanhoLista; i++) {
+            System.out.println(numeros[i]);
         }
     }
 }
